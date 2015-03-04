@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "sqmarket";
+  src: url("../fonts/sqmarket-light.eot");
+  src: url("../fonts/sqmarket-light.eot?#iefix") format("embedded-opentype"),
+  url("../fonts/sqmarket-light.woff") format("woff"),
+  url("../fonts/sqmarket-light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal
+}
+
+@font-face {
+  font-family: "sqmarket";
+  src: url("fonts/sqmarket-regular.eot");
+  src: url("fonts/sqmarket-regular.eot?#iefix") format("embedded-opentype"),
+  url("../fonts/sqmarket-regular.woff") format("woff"),
+  url("../fonts/sqmarket-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: "sqmarket";
+  src: url("../fonts/sqmarket-medium.eot");
+  src: url("../fonts/sqmarket-medium.eot?#iefix") format("embedded-opentype"),
+  url("../fonts/sqmarket-medium.woff") format("woff"),
+  url("../fonts/sqmarket-medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal
+}
+
+@font-face {
+  font-family: "sqmarket";
+  src: url("../fonts/sqmarket-bold.eot");
+  src: url("../fonts/sqmarket-bold.eot?#iefix") format("embedded-opentype"),
+  url("../fonts/sqmarket-bold.woff") format("woff"),
+  url("../fonts/sqmarket-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal
+}
+

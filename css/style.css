@@ -1,0 +1,534 @@
+html, body, a, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, del, dfn, em, img, ins, kbd, q, samp, small, strong, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, table, tbody, tfoot, thead, tr, th, td, article, aside, footer, header, nav, section, input, textarea, button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	border-radius: 0;
+	list-style: none;
+	vertical-align: baseline;
+	background: transparent;
+	font-family: 'Aktiv', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 100%;
+	font-weight: normal;
+	line-height: 100%;
+	font-smoothing: always;
+	text-rendering: optimizeLegibility;
+	-webkit-text-size-adjust: none;
+	-ms-text-size-adjust: 100;
+	//-webkit-font-smoothing: antialiased;
+	-webkit-text-stroke: 1px transparent;
+	-webkit-box-sizing: border-box;
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    color: #2e3b4e;
+    background: #fff;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: #959ba2;
+}
+
+.container
+{
+	margin: 0 auto 0 auto;
+	width: 100%;
+	position: relative;
+	background: #f6f6f6;
+}
+
+
+::-webkit-input-placeholder {
+	padding: 4px 0 0 0;
+}
+
+
+
+footer
+{
+	width: 100%;
+	height: 200px;
+	overflow: hidden;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	background: #2854a1;
+}
+
+.header {
+	width: 100%;
+    height: 70px;
+    overflow: hidden;
+    z-index: 3;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    box-shadow: 0 0px 1px rgba(0, 0, 0, .2);
+    background: #fff;
+    position: relative;
+}
+
+.header .logo
+{
+	position: absolute;
+	left: 20px;
+	top: 18px;
+}
+
+.header .search
+{
+	padding: 19px 0 0 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	cursor: pointer;
+	-webkit-transition: .2s;
+}
+
+.header .search path
+{
+	-webkit-transition: .2s;
+}
+
+.header .search:hover
+{
+	background: #f6f6f6;
+}
+
+.header .search:hover path
+{
+	fill: #61b3ea;
+}
+
+
+
+.brand-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+    height: 60px;
+    overflow: hidden;
+    z-index: 10;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
+.brand-header .logo
+{
+	position: absolute;
+	left: 20px;
+	top: 18px;
+}
+
+
+.brand-hero {
+	width: 100%;
+	height: 400px;
+	overflow: hidden;
+	z-index: 3;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	//background: rgba(255, 255, 255, .9);
+	//border-bottom: 1px solid rgba(0,0,0,.1);
+	background: #000;
+	position: relative;
+}
+
+.brand-photo
+{
+	width: 101%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate3d(-50%, -50%, 0);
+	opacity: .4;
+}
+
+.brand-logo {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 10;
+	background: #fff;
+	-webkit-transform: translate3d(-50%, -50%, 0);
+	border-radius: 5px;
+}
+
+.brand-logo > img
+{
+	width: 80%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate3d(-50%, -50%, 0);
+}
+
+
+.brand-description-holder
+{
+	width: 650px;
+	margin: 0 auto 0 auto;
+}
+
+.brand-title
+{
+	color: #fff;
+	font-size: 36px;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 100;
+	-webkit-transform: translate3d(-50%, -50%, 0);
+}
+
+
+.brand-location
+{
+	color: rgba(255, 255, 255, .6);
+	//font-weight: 400;
+	font-size: 18px;
+	text-align: center;
+	display: block;
+	padding: 7px 0 0 0;
+}
+
+.brand-description
+{
+	font-size: 16px;
+	line-height: 22px;
+	text-align: center;
+	padding: 10px 0 0 0;
+	color: #959ba2;
+}
+
+nav
+{
+	height: 70px;
+	text-align: left;
+	background: #fff;
+	display: table;
+	margin: 0 0 0 70px;
+}
+
+nav a
+{
+	display: table-cell;
+	padding: 1px 20px 0 20px;
+	//text-transform: uppercase;
+	font-size: 14px;
+	//font-weight: bold;
+	//font-weight: 600;
+	//letter-spacing: 1px;
+	-webkit-transition: .2s;
+	vertical-align: middle;
+	color: #999;
+}
+
+nav a:hover
+{
+	color: #61b3ea;
+	background: #f6f6f6;
+}
+
+
+
+
+.burger
+{
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	top: 22px;
+	right: 17px;
+	display: none;
+}
+
+.burger .line
+{
+	width: 100%;
+	height: 3px;
+	background: #000;
+	margin: 0 0 4px 0;
+}
+
+section
+{
+	max-width: 980px;
+	margin: 0 auto 0 auto;
+	padding: 60px 30px 50px 30px;
+	font-size: 16px;
+	//font-weight: 400;
+	line-height: 26px;
+	overflow: hidden;
+	
+}
+
+section > h1
+{
+	font-size: 2.0rem;
+	line-height: 2.5rem;
+	padding: 40px 0 10px 0;
+	color: #2e3b4e;
+	text-align: center;
+	border-top: 1px solid rgba(0,0,0,.05);
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+}
+
+
+
+.button-container
+{
+	border-top: 1px solid rgba(45,60,72,0.12);
+	padding: 30px 0 0 0;
+	margin: 30px 0 0 0;
+	overflow: hidden;
+}
+
+.button-container .save-list
+{
+	//margin: 0 10px 0 0;
+}
+
+button
+{
+	width: 49%;
+	padding: 16px 0 15px 0;
+	border-radius: 3px;
+	color: #fff;
+	background: #2854a1;
+	cursor: pointer;
+	display: block;
+	font-size: 12px;
+	letter-spacing: 1px;
+	text-align: center;
+	moz-user-select: none;
+	ms-user-select: none;
+	user-select: none;
+	white-space: nowrap;
+	-webkit-transition: opacity .2s;
+	text-transform: uppercase;
+	float: left;
+	font-weight: bold;
+}
+
+button:hover
+{
+	opacity: 0.9;
+	//box-shadow: 0 1px 3px -1px rgba(45,60,72,0.5);
+}
+
+button:active
+{
+	opacity: 0.7;
+	box-shadow: 0;
+}
+
+.div
+{
+	display: block;
+	width: 2%;
+	height: 30px;
+	float: left;
+}
+
+.left
+{
+	width: 40%;
+	float: left;
+}
+
+.right
+{
+	width: 60%;
+	float: right;
+}
+
+.photo
+{
+	height: 330px;
+	overflow: hidden;
+	position: relative;
+	background: #ffffff;
+	border-radius: 5px;
+	-webkit-transform: translate3d(0,0,0);
+	//border: 1px solid rgba(0,0,0,.06);
+	box-shadow: 0 0px 1px 0px rgba(0,0,0,0.3);
+}
+
+.photo img
+{
+	width: 101%;
+	opacity: .95;
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate3d(-50%, -50%, 0);
+}
+
+
+
+.description
+{
+	padding:  0 0 0 40px;
+	font-size: 16px;
+	line-height: 24px;
+	color: #959ba2;
+}
+
+.description h1
+{
+	font-size: 36px;
+	line-height: 40px;
+	padding: 0 0 10px 0;
+	color: #2e3b4e;
+	margin-top: -4px;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+}
+
+.description a
+{
+	display: table;
+	color: #61b3ea;
+	//font-weight: 500;
+	padding: 15px 0 0 0;
+}
+
+.description .brand
+{
+	font-size: 16px;
+	//font-weight: 500;
+	display: table;
+	padding: 0 0 0 0;
+	margin: 0 0 10px 0;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+}
+
+
+
+
+
+.table
+{
+	width: 100%;
+	border: 1px solid rgba(45,60,72,0.12);
+	display: table;
+	margin: 30px 0 0 0;
+	border-radius: 3px;
+	background: #fff;
+	color: #959ba2;
+}
+
+.table li
+{
+	width: 100%;
+	height: 42px;
+	display: table-row;
+	font-size: 14px;
+	//font-weight: 400;
+	vertical-align: middle;
+}
+
+.table li b
+{
+	display: table-cell;
+	//font-weight: 500;
+	padding: 10px 15px 9px 15px;
+	border-bottom: 1px solid rgba(45,60,72,0.12);
+	white-space: nowrap;
+	font-weight: bold;
+}
+
+.table li span
+{
+	display: table-cell;
+	padding: 10px 15px 9px 15px;
+	border-bottom: 1px solid rgba(45,60,72,0.12);
+	line-height: 24px;
+}
+
+.table li:last-child b,
+.table li:last-child span
+{
+	border: none;
+}
+
+.table li .tag
+{
+	padding: 7px 12px 7px 12px;
+	border-radius: 3px;
+	color: #fff;
+	font-size: 12px;
+	position: relative;
+	top: -1px;
+	background: #61b3ea;
+}
+
+.table li .tag:hover
+{
+	opacity: .9;
+}
+
+
+
+.bg1 { background: #EF80D1; }
+.bg2 { background: #D64EA8; }
+.bg3 { background: #F7C200; }
+.bg4 { background: #61D88E; }
+.bg5 { background: #5EDAE6; }
+.bg6 { background: #379EFF; }
+.bg7 { background: #697CFF; }
+.bg8 { background: #2D3847; }
+.bg9 { background: #A8986F; }
+
+
+.color1 { color: #EF80D1; }
+.color2 { color: #D64EA8; }
+.color3 { color: #F7C200; }
+.color4 { color: #61D88E; }
+.color5 { color: #5EDAE6; }
+.color6 { color: #379EFF; }
+.color7 { color: #697CFF; }
+.color8 { color: #2D3847; }
+
+
+@media only screen and (max-width: 1200px) {
+
+}
+
+@media only screen and (max-width: 1000px) {
+
+}
+
+@media only screen and (max-width: 850px) {
+    
+}
+
+@media only screen and (max-width: 560px) {
+	body
+	{
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+	}
+}
