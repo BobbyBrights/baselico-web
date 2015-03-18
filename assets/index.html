@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=device-dpi, user-scalable=no, minimal-ui">
+	
+	<style>
+	 
+		
+		@-webkit-keyframes animate-spin
+		{
+			from
+			{
+				transform: rotate(0deg);
+				webkit-transform: rotate(0deg);
+			}
+			to
+			{
+				transform: rotate(360deg);
+				webkit-transform: rotate(360deg);
+			}
+		}
+		@keyframes animate-spin
+		{
+			from
+			{
+				transform: rotate(0deg);
+				webkit-transform: rotate(0deg);
+			}
+			to
+			{
+				transform: rotate(360deg);
+				webkit-transform: rotate(360deg);
+			}
+		}
+		*,*:before,*:after
+		{
+			box-sizing: border-box;
+		}
+		html
+		{
+			color: white;
+			font-size: 100%;
+			line-height: 1.5;
+			ms-text-size-adjust: 100%;
+			text-size-adjust: 100%;
+			webkit-text-size-adjust: 100%;
+		}
+		body
+		{
+			background-color: #fff;
+			margin: 0;
+		}
+		::-moz-selection
+		{
+			background: #fff;
+			color: white;
+			text-shadow: none;
+		}
+		::selection
+		{
+			background: #fff;
+			color: white;
+			text-shadow: none;
+		}
+		canvas,svg,video
+		{
+			vertical-align: middle;
+		}
+		button,input[type="submit"]
+		{
+			cursor: pointer;
+			webkit-appearance: button;
+		}
+		.outro__cover,.voting,.sharing__message,.share
+		{
+			transition: opacity 150ms ease;
+			webkit-transition: opacity 150ms ease;
+		}
+		html,.tagline,.manifesto p
+		{
+			font-family: "AtlasTypewriterRegular", "Andale Mono", "Consolas", "Lucida Console", "Menlo", "Luxi Mono", monospace;
+			font-style: normal;
+			font-weight: 400;
+		}
+		.heading
+		{
+			font-family: "AtlasGroteskBold", "Helvetica Neue", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+			font-style: normal;
+			font-weight: 700;
+			text-rendering: optimizeLegibility;
+		}
+		p,.tagline,.link--action,.manifesto p
+		{
+			font-size: 0.75rem;
+		}
+		.btn,.btn--section,.close
+		{
+			background: transparent;
+			border: 0;
+			border-radius: 0;
+			color: inherit;
+			cursor: pointer;
+			display: inline-block;
+			font: inherit;
+			margin: 0;
+			outline: 0;
+			padding: 0;
+			text-transform: none;
+		}
+		.btn,.btn--section
+		{
+			border: 1px solid;
+			font-size: 0.75rem;
+			padding: 1.25rem 1.6875rem;
+			text-align: center;
+			transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+			vertical-align: middle;
+			webkit-transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+		}
+		.active.btn,.active.btn--section,[disabled].btn,[disabled].btn--section
+		{
+			cursor: default;
+		}
+		a
+		{
+			background: transparent;
+			color: inherit;
+			text-decoration: none;
+		}
+		p a
+		{
+			text-decoration: underline;
+			transition: color 150ms ease;
+			webkit-transition: color 150ms ease;
+		}
+		p a:active
+		{
+			color: #aaaaaa;
+		}
+		.heading
+		{
+			color: white;
+			font-size: 1.5rem;
+			line-height: 1.35;
+		}
+		.no-touch p a:hover,.no-touch p a:focus
+		{
+			color: #aaaaaa;
+		}
+		.tagline
+		{
+			display: inline-block;
+			float: left;
+			margin: 0;
+			margin-left: 1.25rem;
+			margin-top: 10px;
+			max-width: 9.0625rem;
+		}
+		@media (min-width: 81.25em)
+		{
+			.tagline
+			{
+				float: none;
+				max-width: none;
+			}
+		}
+		.icon--ello
+		{
+			height: 3.75rem;
+			overflow: hidden;
+			width: 3.75rem;
+		}
+		.share .svgicon
+		{
+			height: 3.75rem;
+			width: 3.75rem;
+		}
+		.icon--ello .svg__fg,.share .svg__fg
+		{
+			fill: white;
+		}
+		.icon--xpm
+		{
+			height: 1.3125rem;
+			width: 1.3125rem;
+		}
+		.icon--xpm .svg__bg
+		{
+			fill: transparent;
+		}
+		.icon--xpm .svg__fg
+		{
+			fill: white;
+		}
+		.form
+		{
+			display: inline-block;
+			left: 1.875rem;
+			top: 6.875rem;
+			transition: top 150ms ease, left 150ms ease, color 150ms ease, width 150ms ease;
+			webkit-transition: top 150ms ease, left 150ms ease, color 150ms ease, width 150ms ease;
+			width: 100%;
+		}
+		@media (min-width: 40.6875em)
+		{
+			.form
+			{
+				padding-right: 1.875rem;
+				position: absolute;
+			}
+		}
+		@media (min-width: 66.25em)
+		{
+			.form
+			{
+				left: 50%;
+				margin-left: -15rem;
+				padding-right: 0;
+				top: 1.875rem;
+				width: 27rem;
+			}
+		}
+		@media (min-width: 81.25em)
+		{
+			.form
+			{
+				margin-left: -15.25rem;
+				top: 3.75rem;
+				width: 33.75rem;
+			}
+		}
+		fieldset
+		{
+			border: 0;
+			margin: 0;
+			min-width: 0;
+			padding: 0;
+		}
+		input
+		{
+			color: inherit;
+			font: inherit;
+			margin: 0;
+			moz-appearance: caret;
+			webkit-appearance: caret;
+		}
+		input::-webkit-input-placeholder
+		{
+			color: #333333;
+		}
+		input::-moz-placeholder
+		{
+			color: #333333;
+		}
+		input:-ms-input-placeholder
+		{
+			color: #333333;
+		}
+		input::placeholder
+		{
+			color: #333333;
+		}
+		input:focus::-webkit-input-placeholder
+		{
+			color: transparent;
+		}
+		input:focus::-moz-placeholder
+		{
+			color: transparent;
+		}
+		input:focus:-ms-input-placeholder
+		{
+			color: transparent;
+		}
+		input:focus::placeholder
+		{
+			color: transparent;
+		}
+		@media (max-width: 40.625em)
+		{
+			.form__group
+			{
+				margin: 0 auto;
+				margin-top: 1.25rem;
+				padding: 0;
+			}
+		}
+		@media (min-width: 40.625em)
+		{
+			.form__group
+			{
+				margin-right: -15rem;
+				padding-right: 15rem;
+				width: 100%;
+			}
+			.form-was-submitted .form__group
+			{
+				padding-right: 3.75rem;
+			}
+		}
+		@media (max-width: 66.25em)
+		{
+			.form-was-submitted .form__group
+			{
+				margin-right: auto;
+				padding-right: auto;
+			}
+		}
+		.form__label
+		{
+			display: none;
+		}
+		.form__control
+		{
+			background-color: #c5c5c5;
+			border: 1px solid #c5c5c5;
+			border-radius: 0;
+			color: #333333;
+			display: inline-block;
+			font-size: 0.75rem;
+			padding: 1.25rem 1.6875rem;
+			transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, width 150ms ease;
+			webkit-transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, width 150ms ease;
+			width: 100%;
+		}
+		.form__control:focus
+		{
+			background-color: white;
+			border-color: white;
+			outline: 0;
+		}
+		.form--error .form__control
+		{
+			background-color: red;
+			border-color: red;
+		}
+		.form--error .form__control:focus
+		{
+			background-color: white;
+		}
+		.form__actions
+		{
+			margin-top: 0.625rem;
+			max-width: none;
+			width: 100%;
+		}
+		.form__actions .btn
+		{
+			width: 100%;
+		}
+		.form-was-submitted .form__control
+		{
+			max-width: none;
+		}
+		@media (max-width: 40.625em)
+		{
+			.form-was-submitted .form__actions
+			{
+				opacity: 0.3;
+			}
+		}
+		@media (min-width: 40.625em)
+		{
+			.form-was-submitted .form__actions
+			{
+				display: none;
+			}
+		}
+		@media (max-width: 25em)
+		{
+			.form-was-submitted .form__control
+			{
+				padding-left: 1.25rem;
+			}
+		}
+		@media (min-width: 40.625em)
+		{
+			.form__group,.form__actions
+			{
+				display: inline-block;
+			}
+			.form__actions
+			{
+				margin-top: 0;
+			}
+			.form__actions,.form__actions .btn
+			{
+				max-width: 12.5rem;
+				width: auto;
+			}
+		}
+		.indication
+		{
+			display: block;
+			padding: 0.3125rem 0.625rem;
+		}
+		[data-activated="beta-public-profiles"] .indication:nth-child(1) .indicator,[data-activated="request-an-invitation"] .indication:nth-child(2) .indicator,[data-activated="manifesto"] .indication:nth-child(3) .indicator,[data-activated="who-made-this"] .indication:nth-child(4) .indicator
+		{
+			background-color: white;
+		}
+		.btn
+		{
+			background-color: #fff;
+			color: white;
+		}
+		.btn.active,.btn[disabled]
+		{
+			background-color: #e5e5e5;
+			color: #666666;
+		}
+		.btn--section
+		{
+			background-color: transparent;
+			border-color: white;
+			color: white;
+			display: none;
+			width: 100%;
+		}
+		.btn--section.active,.btn--section[disabled]
+		{
+			background-color: transparent;
+			border-color: white;
+			color: white;
+		}
+		.no-touch .btn:hover,.no-touch .btn:focus
+		{
+			background-color: #4d4d4d;
+			border-color: #4d4d4d;
+			color: white;
+		}
+		.no-touch .btn--section:hover,.no-touch .btn--section:focus
+		{
+			background-color: black;
+			border-color: black;
+			color: white;
+		}
+		@media (min-width: 30em)
+		{
+			.btn--section
+			{
+				width: auto;
+			}
+		}
+		html,body,.main
+		{
+			height: 100%;
+		}
+		.main
+		{
+			width: 100%;
+		}
+		.banner
+		{
+			background-color: #333333;
+			height: 18.5rem;
+			left: 0;
+			padding: 1.25rem 1.25rem 0;
+			position: absolute;
+			top: 0;
+			transition: height 150ms ease;
+			webkit-transition: height 150ms ease;
+			width: 100%;
+			z-index: 4;
+		}
+		@media (min-width: 40.625em)
+		{
+			.banner
+			{
+				height: 12.5rem;
+				padding-left: 1.875rem;
+				padding-top: 1.875rem;
+				position: fixed;
+			}
+		}
+		@media (min-width: 66.25em)
+		{
+			.banner
+			{
+				height: 7.5rem;
+			}
+		}
+		@media (min-width: 81.25em)
+		{
+			.banner
+			{
+				height: 11.25rem;
+				padding-top: 3.75rem;
+			}
+		}
+		.link__logo
+		{
+			float: left;
+		}
+		.link__logo.loading
+		{
+			animation: animate-spin 0.3s infinite linear;
+			webkit-animation: animate-spin 0.3s infinite linear;
+		}
+		@media (min-width: 81.25em)
+		{
+			.link__logo
+			{
+				float: none;
+			}
+		}
+		.section__login
+		{
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+			z-index: 5;
+		}
+		@media (min-width: 40.625em)
+		{
+			.section__login
+			{
+				position: fixed;
+			}
+		}
+		.login__links
+		{
+			left: 1.375rem;
+			position: absolute;
+			right: auto;
+			top: 15.625rem;
+			transition: right 150ms cubic-bezier(0.77, 0, 0.175, 1),left 150ms cubic-bezier(0.77, 0, 0.175, 1),top 150ms cubic-bezier(0.77, 0, 0.175, 1);
+			webkit-transition: right 150ms cubic-bezier(0.77, 0, 0.175, 1),left 150ms cubic-bezier(0.77, 0, 0.175, 1),top 150ms cubic-bezier(0.77, 0, 0.175, 1);
+		}
+		.login__links .link--action+.link--action
+		{
+			margin-left: 0.9375rem;
+		}
+		.pp--action
+		{
+			bottom: 0;
+			color: white !important;
+			display: none;
+			left: 10px;
+			position: absolute;
+			z-index: 9999;
+		}
+		@media (max-width: 374px)
+		{
+			.login__links .privacy--action
+			{
+				display: none;
+			}
+		}
+		@media (min-width: 374px)
+		{
+			.pp--action
+			{
+				display: none !important;
+			}
+		}
+		.link--action
+		{
+			color: #999999;
+			display: inline-block;
+			transition: color 300ms ease;
+			transition: margin-right 150ms cubic-bezier(0.77, 0, 0.175, 1);
+			webkit-transition: color 300ms ease;
+			webkit-transition: margin-right 150ms cubic-bezier(0.77, 0, 0.175, 1);
+		}
+		@media (max-width: 25em)
+		{
+			.link--action
+			{
+				margin-right: -0.375rem;
+			}
+		}
+		@media (min-width: 40.625em)
+		{
+			.link--action
+			{
+				padding: 0 2px;
+			}
+		}
+		.no-touch .link--action:hover,.no-touch .link--action:focus
+		{
+			color: white;
+		}
+		@media (min-width: 40.625em)
+		{
+			.login__links
+			{
+				left: auto;
+				right: 1.875rem;
+				top: 2.9375rem;
+			}
+		}
+		@media (min-width: 81.25em)
+		{
+			.login__links
+			{
+				top: 4.875rem;
+			}
+		}
+		.section
+		{
+			display: table;
+			height: 100%;
+			position: relative;
+			text-align: center;
+			width: 100%;
+		}
+		@media (orientation: portrait) and (max-width: 25em)
+		{
+			.section:nth-child(1)
+			{
+				min-height: 33.125rem;
+			}
+		}
+		.article
+		{
+			display: table-cell;
+			height: 100%;
+			padding: 1.875rem 1.25rem;
+			vertical-align: middle;
+		}
+		@media (min-width: 40.625em)
+		{
+			.article
+			{
+				padding: 1.875rem 1.875rem;
+			}
+		}
+		.article__body
+		{
+			margin: 0 auto;
+			text-align: left;
+		}
+		@media (min-width: 55.25em)
+		{
+			.article__body
+			{
+				max-width: 41.875rem;
+			}
+		}
+		@media (min-width: 40.625em)
+		{
+			#manifesto .article
+			{
+				padding-top: 12.5rem;
+			}
+		}
+		@media (min-width: 66.25em)
+		{
+			#manifesto .article
+			{
+				padding-top: 7.5rem;
+			}
+		}
+		@media (min-width: 81.25em)
+		{
+			#manifesto .article
+			{
+				padding-top: 11.25rem;
+			}
+		}
+		.manifesto p
+		{
+			line-height: 1.75;
+			margin: 2.5em 0;
+		}
+		#beta-public-profiles .article__body,#beta-public-profiles .article
+		{
+			padding: 0;
+		}
+		#beta-public-profiles .article
+		{
+			padding-top: 0;
+			transition: padding-top 150ms cubic-bezier(0.77, 0, 0.175, 1);
+			vertical-align: bottom;
+			webkit-transition: padding-top 150ms cubic-bezier(0.77, 0, 0.175, 1);
+		}
+		#beta-public-profiles p
+		{
+			color: #999999;
+		}
+		@media (min-width: 40.625em)
+		{
+			#beta-public-profiles .article
+			{
+				padding-top: 0;
+			}
+		}
+		@media (min-width: 66.25em)
+		{
+			#beta-public-profiles .article
+			{
+				padding-top: 0;
+			}
+		}
+		@media (min-width: 81.25em)
+		{
+			#beta-public-profiles .article
+			{
+				padding-top: 0;
+			}
+		}
+		
+		.avatar,
+		.avatar--large
+		{
+			background-color: transparent;
+			display: inline-block;
+			width: 200px;
+			height: 200px;
+			margin-bottom: 0;
+			margin-left: 0;
+			overflow: hidden;
+			border-radius: 999px;
+			
+		}
+		.no-touch .avatar,
+		.no-touch .avatar--large
+		{
+			transition: opacity 300ms ease;
+			webkit-transition: opacity 300ms ease;
+		}
+		.no-touch .avatar:hover,
+		.no-touch .avatar--large:hover
+		{
+			opacity: 0.9;
+		}
+		.profile__group
+		{
+			background-color: #fff;
+			height: 100%;
+			overflow: hidden;
+			position: relative;
+			width: 100%;
+		}
+		.profile__group .avatar-container
+		{
+			left: 50%;
+			position: absolute;
+			visibility: hidden;
+		}
+		.profile__group .avatar-container.visible
+		{
+			visibility: visible;
+		}
+		.profile__group .avatar-container .avatar,
+		.profile__group .avatar-container .avatar--large
+		{
+			background-size: cover;
+			width: 150px;
+			height: 150px;
+			margin-left: -4.0625rem;
+			margin-top: -4.0625rem;
+			position: absolute;
+			
+		}
+		.profile__group.small--avatars .avatar-container .avatar,
+		.profile__group.small--avatars .avatar-container .avatar--large
+		{
+			height: 200px;
+			margin-left: -2.8125rem;
+			margin-top: -2.8125rem;
+			width: 200px;
+		}
+		.profile-avatars
+		{
+			font-size: 0;
+			height: 100%;
+			width: 100%;
+		}
+		.article__actions
+		{
+			bottom: 1.875rem;
+			left: 6.25rem;
+			position: absolute;
+		}
+		.article__actions .btn--section
+		{
+			display: inline-block;
+		}
+		@media (max-width: 350px)
+		{
+			.article__actions
+			{
+				margin-left: -0.625rem;
+			}
+		}
+		.panel-title
+		{
+			margin: 1.875rem 0;
+		}
+		.outro__cover
+		{
+			background-color: white;
+			height: 500%;
+			left: -25%;
+			opacity: 0;
+			position: absolute;
+			top: -25%;
+			transition-delay: 75ms;
+			webkit-transition-delay: 75ms;
+			width: 150%;
+			z-index: 100;
+		}
+		.outro__cover.outro--active
+		{
+			opacity: 1;
+		}
+		.poll
+		{
+			margin-top: 3.25rem;
+		}
+		.voting
+		{
+			opacity: 0;
+		}
+		.poll.closed .voting
+		{
+			opacity: 1;
+		}
+		.sharing
+		{
+			display: none;
+			position: relative;
+		}
+		.poll.opened .voting
+		{
+			display: none;
+		}
+		.poll.opened .sharing
+		{
+			display: block;
+		}
+		.voting .btn
+		{
+			width: 100%;
+		}
+		.voting .btn+.btn
+		{
+			margin-top: 0.625rem;
+		}
+		@media (min-width: 30em)
+		{
+			.voting .btn
+			{
+				width: auto;
+			}
+			.voting .btn+.btn
+			{
+				margin-left: 0.625rem;
+				margin-top: 0;
+			}
+		}
+		.sharing__message
+		{
+			opacity: 0;
+			position: absolute;
+			top: -1.875rem;
+			transition-delay: 75ms;
+			webkit-transition-delay: 75ms;
+		}
+		.sharing__list
+		{
+			margin-left: -0.625rem;
+			margin-top: -0.625rem;
+		}
+		.share
+		{
+			display: inline-block;
+			margin-left: 0.5625rem;
+			margin-top: 0.625rem;
+			opacity: 0;
+			outline: 0;
+		}
+		@media (min-width: 21.875em)
+		{
+			.share
+			{
+				margin-left: 0.625rem;
+			}
+		}
+		.no-touch .share:hover .svg__bg,.no-touch .share:focus .svg__bg
+		{
+			fill: #4d4d4d;
+		}
+		.poll.open .sharing__message
+		{
+			transition-delay: 0s;
+			webkit-transition-delay: 0s;
+		}
+		.poll.open .share
+		{
+			transition-delay: 75ms;
+			webkit-transition-delay: 75ms;
+		}
+		.poll.open .share:nth-child(2)
+		{
+			transition-duration: 300ms;
+			webkit-transition-duration: 300ms;
+		}
+		.poll.open .share:nth-child(3)
+		{
+			transition-duration: 450ms;
+			webkit-transition-duration: 450ms;
+		}
+		.poll.open .share:nth-child(4)
+		{
+			transition-duration: 600ms;
+			webkit-transition-duration: 600ms;
+		}
+		.poll.open .share:nth-child(5)
+		{
+			transition-duration: 750ms;
+			webkit-transition-duration: 750ms;
+		}
+		.poll.open .share:nth-child(6)
+		{
+			transition-duration: 900ms;
+			webkit-transition-duration: 900ms;
+		}
+		.poll.open .share:nth-child(7)
+		{
+			transition-duration: 1050ms;
+			webkit-transition-duration: 1050ms;
+		}
+		.poll.open .sharing__message,.poll.open .share
+		{
+			opacity: 1;
+		}
+		.close
+		{
+			display: inline-block;
+			opacity: 0;
+			transform: translate3d(0, 0, 0) rotate(-45deg);
+			transition: transform 150ms cubic-bezier(0.77, 0, 0.175, 1),opacity 150ms cubic-bezier(0.77, 0, 0.175, 1);
+			webkit-transform: translate3d(0, 0, 0) rotate(-45deg);
+			webkit-transition: -webkit-transform 150ms cubic-bezier(0.77, 0, 0.175, 1),opacity 150ms cubic-bezier(0.77, 0, 0.175, 1);
+		}
+		.poll.open .close
+		{
+			opacity: 1;
+			transform: translate3d(1.25rem, 0, 0) rotate(45deg);
+			transition-delay: 150ms;
+			webkit-transform: translate3d(1.25rem, 0, 0) rotate(45deg);
+			webkit-transition-delay: 150ms;
+		}
+
+	</style>
+	
+</head>
+
+<body>
+
+
+
+
+<div class='main' role='main'>
+   <section class='section js-section' id='beta-public-profiles'>
+      <article class='article'>
+         <div class='profile__group'>
+            <div class='profile-avatars'>
+               <template id='avatars-lazyload'>
+               
+               
+               
+                  <span class="avatar-container" draggable="true">
+                      <a alt="@adrianlandonbrooks" class="avatar--large stranger" data-username="adrianlandonbrooks" draggable="false" href="/adrianlandonbrooks" style="background-image:url('cassio.jpg');" title="@adrianlandonbrooks"></a>
+                  </span>
+                  
+                  <span class="avatar-container" draggable="true">
+                      <a alt="@adrianlandonbrooks" class="avatar--large stranger" data-username="adrianlandonbrooks" draggable="false" href="/adrianlandonbrooks" style="background-image:url('baylor.jpg');" title="@adrianlandonbrooks"></a>
+                  </span>
+                  
+                  <span class="avatar-container" draggable="true">
+                      <a alt="@adrianlandonbrooks" class="avatar--large stranger" data-username="adrianlandonbrooks" draggable="false" href="/adrianlandonbrooks" style="background-image:url('mille.jpg');" title="@adrianlandonbrooks"></a>
+                  </span>
+                  
+                  <span class="avatar-container" draggable="true">
+                      <a alt="@adrianlandonbrooks" class="avatar--large stranger" data-username="adrianlandonbrooks" draggable="false" href="/adrianlandonbrooks" style="background-image:url('omega.jpg');" title="@adrianlandonbrooks"></a>
+                  </span>
+                  
+                  <span class="avatar-container" draggable="true">
+                      <a alt="@adrianlandonbrooks" class="avatar--large stranger" data-username="adrianlandonbrooks" draggable="false" href="/adrianlandonbrooks" style="background-image:url('patek.jpg');" title="@adrianlandonbrooks"></a>
+                  </span>
+                  
+                  <span class="avatar-container" draggable="true">
+                      <a alt="@adrianlandonbrooks" class="avatar--large stranger" data-username="adrianlandonbrooks" draggable="false" href="/adrianlandonbrooks" style="background-image:url('royaloak.jpg');" title="@adrianlandonbrooks"></a>
+                  </span>
+                 
+               </template>
+            </div>
+         </div>
+      </article>
+   </section>
+</div>
+
+<script type="text/javascript">
+
+var tts = tts || {};
+tts.CSSHelper = function() {
+    var t = tts.CSSHelper.getVendorPrefix("Transform"),
+        e = null != t,
+        i = t + "Transform";
+    tts.CSSHelper.transformString = t + "Transform";
+    var n = t + "Transition",
+        r = navigator.userAgent.toLowerCase().match(/android 2/i) || navigator.userAgent.toLowerCase().match(/android 3/i) ? !0 : !1,
+        s = function() {
+            return t
+        },
+        o = function() {
+            return e
+        },
+        a = function(t) {
+            t.style[i] = ""
+        },
+        u = function(t) {
+            t.style[n] = ""
+        },
+        c = function(e, i) {
+            i = i || "hidden", e.style.backfaceVisibility = "hidden", e.style[t + "BackfaceVisibility"] = "hidden"
+        },
+        l = function(t, n, s, o, c, l) {
+            t && (1 != l && (l = !1), o = o || 1, c = c || 0, 0 == l && u(t), e && 1 != r ? 1 == r ? (a(t), t.getAttribute("data-pos") || t.setAttribute("data-pos", t.offsetLeft + "," + t.offsetTop), pos = t.getAttribute("data-pos").split(","), n += parseInt(pos[0]), s += parseInt(pos[1]), t.style.left = tts.CSSHelper.roundForCSS(n) + "px", t.style.top = tts.CSSHelper.roundForCSS(s) + "px", 1 != o && t.children && t.children[0] && t.children[0].style && (t.children[0].style[i] = f(o))) : t.style[i] = h(n, s) + f(o) + p(c) : (t.style.left = tts.CSSHelper.roundForCSS(n) + "px", t.style.top = tts.CSSHelper.roundForCSS(s) + "px", t.style.zoom = o))
+        },
+        d = function(t, e) {
+            t.style[i] = p(e)
+        },
+        h = function(t, e) {
+            return " translate3d( " + tts.CSSHelper.roundForCSS(t) + "px, " + tts.CSSHelper.roundForCSS(e) + "px, 0px )"
+        },
+        f = function(t) {
+            return " scale( " + tts.CSSHelper.roundForCSS(t) + " )"
+        },
+        p = function(t) {
+            return " rotate( " + tts.CSSHelper.roundForCSS(t) + "deg )"
+        };
+    return {
+        update2DPosition: l,
+        update2DRotation: d,
+        getVendor: s,
+        getCssTransformsEnabled: o,
+        setBackfaceVisbility: c
+    }
+}, tts.CSSHelper.getVendorPrefix = function(t) {
+    var e = function() {
+            if (!navigator.userAgent.toLowerCase().match(/msie 9/i)) {
+                var e = ["Moz", "Webkit", "ms"],
+                    n = i();
+                for (var r in e)
+                    if (void 0 !== n.style[e[r] + t]) return e[r];
+                return null
+            }
+        },
+        i = function() {
+            var t = document.body.childNodes;
+            for (var e in t)
+                if ("undefined" != typeof t[e].style) return t[e]
+        };
+    return e()
+}, tts.CSSHelper.roundForCSS = function(t) {
+    var e = Math.pow(10, 2);
+    return Math.round(t * e) / e
+}, tts.CSSHelper.posArray = [0, 0], tts.CSSHelper.findPos = function(t) {
+    var e = window.pageXOffset ? window.pageXOffset : document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft,
+        i = window.pageYOffset ? window.pageYOffset : document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop,
+        n = curtop = 0;
+    if (t.offsetParent)
+        do {
+            if (t.offsetParent && "undefined" != typeof t.offsetParent.style && "undefined" != typeof t.offsetParent.style[tts.CSSHelper.transformString] && t.offsetParent.style[tts.CSSHelper.transformString]) {
+                var r = t.offsetParent.style[tts.CSSHelper.transformString].split("translate3d(")[1].split(")")[0].replace(/ +/g, "").replace(/px+/g, "").split(",");
+                n += parseInt(r[0]), curtop += parseInt(r[1])
+            }
+            n += t.offsetLeft, curtop += t.offsetTop
+        } while (t = t.offsetParent);
+    return tts.CSSHelper.posArray[0] = n - e, tts.CSSHelper.posArray[1] = curtop - i, tts.CSSHelper.posArray
+};
+var ElasticPoint = function(t, e, i, n, r) {
+        var s = n,
+            o = r,
+            a = t,
+            u = e,
+            c = i,
+            l = t,
+            d = e,
+            h = i,
+            f = 0,
+            p = 0,
+            g = 0,
+            m = !1,
+            t = function() {
+                return a
+            },
+            e = function() {
+                return u
+            },
+            i = function() {
+                return c
+            },
+            v = function() {
+                return m
+            },
+            S = function() {
+                return f + p + g
+            },
+            y = function() {
+                return f
+            },
+            w = function() {
+                return p
+            },
+            M = function() {
+                return g
+            },
+            U = function(t, e, i) {
+                a = t, u = e, c = i
+            },
+            A = function(t, e, i) {
+                l = t, d = e, h = i
+            },
+            T = function(t) {
+                l = t
+            },
+            C = function(t) {
+                d = t
+            },
+            b = function(t) {
+                h = t
+            },
+            L = function(t) {
+                s = t
+            },
+            x = function(t) {
+                o = t
+            },
+            E = function() {
+                f = ((l - a) * o + f) * s, p = ((d - u) * o + p) * s, g = ((h - c) * o + g) * s, a += f, u += p, c += g, m = f > .001 || p > .001 || g > .001
+            };
+        return {
+            x: t,
+            y: e,
+            z: i,
+            isDirty: v,
+            speed: S,
+            speedX: y,
+            speedY: w,
+            speedZ: M,
+            setTarget: A,
+            setTargetX: T,
+            setTargetY: C,
+            setTargetZ: b,
+            setCurrent: U,
+            setFriction: L,
+            setAccel: x,
+            update: E
+        }
+    },
+    MathUtil = MathUtil || {};
+MathUtil.TWO_PI = 2 * Math.PI, MathUtil.randRange = function(t, e) {
+        return Math.round(Math.random() * (e - t)) + t
+    }, MathUtil.randRangeDecimel = function(t, e) {
+        return Math.random() * (e - t) + t
+    }, MathUtil.getPercentWithinRange = function(t, e, i) {
+        return e += -t, i += -t, t += -t, i / (e - t)
+    }, MathUtil.lerpByPercent = function(t, e, i) {
+        return t + (e - t) * i
+    }, MathUtil.map = function(t, e, i, n, r) {
+        return (r - n) * ((t - e) / (i - e)) + n
+    }, MathUtil.roundToDecimal = function(t, e) {
+        var i = Math.pow(10, e);
+        return Math.round(t * i) / i
+    }, MathUtil.easeTo = function(t, e, i) {
+        return t -= (t - e) / i
+    }, MathUtil.degreesToRadians = function(t) {
+        return t * (Math.PI / 180)
+    }, MathUtil.radiansToDegrees = function(t) {
+        return t * (180 / Math.PI)
+    }, MathUtil.percentToDegrees = function(t) {
+        return 360 * Math.abs(t)
+    }, MathUtil.degreesToPercent = function(t) {
+        return Math.abs(t / 360)
+    }, MathUtil.sums = function(t) {
+        for (var e = 0, i = t.length, n = 0; i > n; n++) e += t[n];
+        return e
+    }, MathUtil.average = function(t) {
+        return MathUtil.sums(t) / t.length
+    }, MathUtil.interp = function(t, e, i) {
+        return (e - t) * i + t
+    }, MathUtil.remap = function(t, e, i, n, r) {
+        return MathUtil.interp(n, r, MathUtil.getPercentWithinRange(e, i, t))
+    }, MathUtil.getDistance = function(t, e, i, n) {
+        return a = t - i, b = e - n, Math.abs(Math.sqrt(a * a + b * b))
+    }, MathUtil.clamp = function(t, e, i) {
+        return Math.max(e, Math.min(i, t))
+    }, MathUtil.constrainAngle = function(t) {
+        return 0 > t ? t + 360 : t > 360 ? t - 360 : t
+    }, MathUtil.constrainRadians = function(t) {
+        return 0 > t ? t + 2 * Math.PI : t > 2 * Math.PI ? t - 2 * Math.PI : t
+    }, MathUtil.getAngleToTarget = function(t, e, i, n) {
+        return MathUtil.constrainAngle(180 * -Math.atan2(t - i, e - n) / Math.PI)
+    }, MathUtil.getRadiansToTarget = function(t, e, i, n) {
+        return -Math.atan2(t - i, e - n)
+    }, MathUtil.getRotationDirectionToTarget = function(t, e) {
+        var i = Math.abs(t - e);
+        return t > e ? 180 > i ? -1 : 1 : 180 > i ? 1 : -1
+    },
+    function() {
+        for (var t = 0, e = ["ms", "moz", "webkit", "o"], i = 0; i < e.length && !window.requestAnimationFrame; ++i) window.requestAnimationFrame = window[e[i] + "RequestAnimationFrame"], window.cancelAnimationFrame = window[e[i] + "CancelAnimationFrame"] || window[e[i] + "CancelRequestAnimationFrame"];
+        window.requestAnimationFrame || (window.requestAnimationFrame = function(e) {
+            var i = (new Date).getTime(),
+                n = Math.max(0, 16 - (i - t)),
+                r = window.setTimeout(function() {
+                    e(i + n)
+                }, n);
+            return t = i + n, r
+        }), window.cancelAnimationFrame || (window.cancelAnimationFrame = function(t) {
+            clearTimeout(t)
+        })
+    }(),
+    function() {
+        var t = function(t, e) {
+            return function() {
+                return t.apply(e, arguments)
+            }
+        };
+        this.FeaturedUser = function() {
+            function t(t, e, i, n) {
+                this.grid = t, this.el = e, this.imageEl = i, this.index = n, this.name = this.imageEl.getAttribute("data-username"), this.gridLoc = {
+                    x: 0,
+                    y: 0
+                }, this.isOffScreen = !1, this.selected = !1, this.isAccel = !1, this.offset = new ElasticPoint(1, 1, 1, .15, .05), this.scale = new ElasticPoint(0, 0, .001, .65, .21), this.calcGridPosition(), this.addClickHandlers()
+            }
+            return t.prototype.calcGridPosition = function() {
+                var t, e, i, n;
+                return i = this.grid.gridCols * UserGrid.userSpacing, e = this.grid.gridRows * UserGrid.userSpacing, t = this.index % this.grid.gridCols, n = Math.floor(this.index / this.grid.gridCols), this.gridLoc.x = -i / 2 + t * UserGrid.userSpacing + UserGrid.userSpacing / 2, this.gridLoc.y = this.grid.stageH / 2 - e / 2 + n * UserGrid.userSpacing + 1.5 * UserGrid.userSpacing, this.curX = this.gridLoc.x, this.curY = this.gridLoc.y
+            }, t.prototype.scaleUp = function() {
+                return this.el.classList.add("visible"), this.scale.setTargetZ(1)
+            }, t.prototype.scaleDown = function() {
+                return this.scale.setTargetZ(0)
+            }, t.prototype.forceShow = function() {
+                return this.calcGridPosition(), this.scale.setTargetZ(1), this.el.classList.add("visible")
+            }, t.prototype.setActive = function(t) {
+                var e, i;
+                return t ? (this.selected = !0, this.scale.setTargetZ(1.4), e = document.createElement("div"), e.classList.add("outro__cover"), document.body.appendChild(e), i = document.querySelector(".link__logo"), null != i && i.classList.add("loading"), setTimeout(function() {
+                    return function() {
+                        return e.classList.add("outro--active")
+                    }
+                }(this), 650), setTimeout(function(t) {
+                    return function() {
+                        return document.location = "/" + t.name
+                    }
+                }(this), 800), setTimeout(function() {
+                    return function() {
+                        return document.location.reload()
+                    }
+                }(this), 5e3)) : this.scale.setTargetZ(0)
+            }, t.prototype.addClickHandlers = function() {
+                return this.el.addEventListener("mouseout", function(t) {
+                    return function() {
+                        return t.grid.exiting !== !0 ? t.scale.setTargetZ(1) : void 0
+                    }
+                }(this)), this.el.addEventListener("mouseover", function(t) {
+                    return function() {
+                        return t.scale.setTargetZ(1.1)
+                    }
+                }(this)), this.el.addEventListener("click", function(t) {
+                    return function(e) {
+                        return e.preventDefault(), t.grid.activateUser(t)
+                    }
+                }(this))
+            }, t.prototype.setAccelerometer = function() {
+                return this.offset.setFriction(.05), this.isAccel = !0
+            }, t.prototype.update = function() {
+                var t, e, i;
+                return e = MathUtil.getDistance(this.grid.mouseOffsetX * this.grid.stageW, this.grid.mouseOffsetY * this.grid.stageH + this.grid.stageH / 2, this.curX, this.curY), i = e / this.grid.stageW, this.isAccel ? (.2 > i && (i = .2), i > .35 && (i = .35)) : (.25 > i && (i = .25), i > .6 && (i = .6)), t = 1 - i, this.offset.setAccel(t), this.offset.setTargetX(this.grid.mouseOffsetX * this.grid.gridOverhangX), this.offset.setTargetY(this.grid.mouseOffsetY * this.grid.gridOverhangY), this.offset.update(), this.scale.update(), this.curX = this.gridLoc.x - this.offset.x(), this.curY = this.gridLoc.y - this.offset.y(), this.curX > -this.grid.stageW / 2 - UserGrid.userRadius && this.curX < this.grid.stageW / 2 + UserGrid.userRadius && this.curY > -this.grid.stageH / 2 - UserGrid.userRadius && this.curY < this.grid.stageH + UserGrid.userRadius ? (this.grid.cssHelper.update2DPosition(this.el, this.curX, this.curY, this.scale.z(), 0, !1), this.isOffScreen = !1) : this.isOffScreen === !1 ? (this.curX = -UserGrid.userSize, this.curY = -UserGrid.userSize, this.grid.cssHelper.update2DPosition(this.el, this.curX, this.curY, this.scale.z(), 0, !1), this.isOffScreen = !0) : void 0
+            }, t
+        }(), this.UserGrid = function() {
+            function e() {
+                this.animate = t(this.animate, this), this.updateOrientation = t(this.updateOrientation, this), this.cssHelper = new tts.CSSHelper, this.scaleUpIndex = 0, this.scaleUpLastTime = 0, this.scaleDownIndex = 0, this.scaleDownLastTime = 0, this.lazyLoadAvatars(), this.getElements(), this.avatarsArr.length > 0 && setTimeout(function(t) {
+                    return function() {
+                        return t.active = !0, t.timeout = 0, t.paused = !1, t.createMaxNodes(), t.gridConfig(), t.getUserData(), t.watchMouse(), t.watchAccelerometer(), setTimeout(function() {
+                            return requestAnimationFrame(t.animate)
+                        }, 350)
+                    }
+                }(this), 0)
+            }
+            return e.userSize = 130, e.userRadius = e.userSize / 2, e.userPadding = 40, e.userSpacing = e.userSize + e.userPadding, e.mobileBreak = 720, e.prototype.supportsTemplate = function() {
+                return "content" in document.createElement("template")
+            }, e.prototype.lazyLoadAvatars = function() {
+                var t, e;
+                return e = document.querySelector("#avatars-lazyload"), this.supportsTemplate() ? (e = document.querySelector("#avatars-lazyload"), t = document.importNode(e.content, !0), e.parentElement.appendChild(t), e.parentElement.removeChild(e)) : e.parentElement.innerHTML = e.innerHTML
+            }, e.prototype.getElements = function() {
+                return this.gridEl = document.querySelector(".profile__group"), this.avatarsEl = this.gridEl.querySelector(".profile-avatars"), this.avatarsArr = document.querySelectorAll(".avatar-container")
+            }, e.prototype.getUserData = function() {
+                var t, e, i, n, r, s, o;
+                for (this.users = [], this.numUsersLoaded = 0, o = this.avatarsArr, i = r = 0, s = o.length; s > r; i = ++r) t = o[i], e = t.querySelector(".avatar--large"), n = new FeaturedUser(this, t, e, this.numUsersLoaded), this.users.push(n), this.numUsersLoaded++;
+                return !0
+            }, e.prototype.createMaxNodes = function() {
+                var t, i, n, r, s, o, a, u;
+                for (this.screenW = window.screen.width, this.screenH = window.screen.height, r = Math.ceil(this.screenW / e.userSize), this.gridCols % 2 === 0 && (r += 3), s = Math.ceil(this.screenH / e.userSize), s += s % 2 === 0 ? 3 : 2, this.stageW < e.mobileBreak && (s += 2), o = s * r, a = Math.ceil(o / this.avatarsArr.length), i = this.avatarsEl.innerHTML, t = "", n = u = 0; a > u; n = u += 1) t += i;
+                return this.avatarsEl.innerHTML = t, this.avatarsArr = document.querySelectorAll(".avatar-container")
+            }, e.prototype.getGridSpacing = function() {
+                return this.stageW < e.mobileBreak ? (this.gridEl.classList.add("small--avatars"), e.userSize = 90, e.userPadding = 20) : (this.gridEl.classList.remove("small--avatars"), e.userSize = 130, e.userPadding = 40), e.userSpacing = e.userSize + e.userPadding, e.userRadius = e.userSize / 2
+            }, e.prototype.gridConfig = function() {
+                return this.gridEl ? (this.stageW = this.gridEl.offsetWidth, this.stageH = this.gridEl.offsetHeight, this.stageAspectRatio = this.stageW / this.stageH, this.getGridSpacing(), this.gridCols = Math.ceil(this.stageW / e.userSize), this.gridCols % 2 === 0 && (this.gridCols += 3), this.gridRows = Math.ceil(this.stageH / e.userSize), this.gridRows += this.gridRows % 2 === 0 ? 3 : 2, this.stageW < e.mobileBreak && (this.gridRows += 2), this.numUsersDisplayed = this.gridRows * this.gridCols, this.gridOverhangX = this.gridCols * e.userSpacing - this.stageW, this.gridOverhangY = (this.gridRows - 2) * e.userSpacing - this.stageH) : void 0
+            }, e.prototype.watchMouse = function() {
+                return this.mouseOffset = new ElasticPoint(0, 0, 0, .25, .05), this.mouseX = 0, this.mouseY = 0, this.mouseOffsetX = 0, this.mouseOffsetY = 0, window.addEventListener("mousemove", function(t) {
+                    return function(e) {
+                        var i, n, r;
+                        if (t.exiting !== !0) return n = e.clientX - t.mouseX, r = e.clientY - t.mouseY, i = t.gridEl.getBoundingClientRect(), t.mouseX = e.clientX, t.mouseY = e.clientY, t.mouseX > i.left && t.mouseX < i.left + i.width && t.mouseY > i.top && t.mouseY < i.top + i.height && (t.mouseY -= i.top, t.mouseOffsetX = MathUtil.clamp(MathUtil.getPercentWithinRange(0, t.stageW, t.mouseX) - .5, -.5, .5), t.mouseOffsetY = MathUtil.clamp(MathUtil.getPercentWithinRange(0, t.stageH, t.mouseY) - .5, -.5, .5), t.mouseOffset.setTarget(t.mouseOffsetX, t.mouseOffsetY, 0)), t.active === !1 && requestAnimationFrame(t.animate), t.active = !0, t.timeout = 0
+                    }
+                }(this), !1)
+            }, e.prototype.watchAccelerometer = function() {
+                return this.tiltZAxis = 0, this.tiltXAxis = 0, this.compass = 0, this.accelerometerSet = !1, window.addEventListener("deviceorientation", this.updateOrientation)
+            }, e.prototype.updateOrientation = function(t) {
+                var e, i, n, r, s;
+                if (this.tiltZAxis = parseFloat(t.gamma), this.tiltXAxis = parseFloat(t.beta), this.compass = parseFloat(t.alpha), Math.abs(this.tiltZAxis) > 0 && Math.abs(this.tiltXAxis) > 0 && this.tiltXAxis < 90 && this.tiltXAxis > 0) {
+                    if (this.mouseOffsetX = MathUtil.clamp(this.tiltZAxis, -45, 45) / 45 / 2, this.mouseOffsetY = MathUtil.clamp(this.tiltXAxis, 0, 90) / 90 - .5, !this.accelerometerSet) {
+                        for (s = this.users, n = 0, r = s.length; r > n; n++) i = s[n], i.setAccelerometer();
+                        this.accelerometerSet = !0
+                    }
+                    return window.innerWidth > window.innerHeight && (e = this.mouseOffsetX, this.mouseOffsetX = this.mouseOffsetY, this.mouseOffsetY = e), this.mouseOffset.setTarget(this.mouseOffsetX, this.mouseOffsetY, 0)
+                }
+            }, e.prototype.nextScaleUp = function() {
+                var t, e, i, n, r, s, o;
+                for (this.scaleUpLastTime = Date.now(), r = this.scaleUpIndex, i = r, n = r + r, t = s = r; n >= s; t = s += 1) e = t, t !== r && (e = i), e < this.numUsersDisplayed && null != (o = this.users[e]) && o.scaleUp(), i += this.gridCols - 1;
+                return this.scaleUpIndex++, this.scaleUpIndex >= this.gridRows + this.gridCols ? this.nextScaleUp = null : void 0
+            }, e.prototype.nextScaleDown = function() {
+                var t, e, i, n, r, s, o, a;
+                for (this.scaleDownLastTime = Date.now(), r = this.scaleDownIndex, i = r, n = r + r, t = s = r; n >= s; t = s += 1) e = t, t !== r && (e = i), e < this.numUsersDisplayed && !(null != (o = this.users[e]) ? o.selected : void 0) && null != (a = this.users[e]) && a.scaleDown(), i += this.gridCols - 1;
+                return this.scaleDownIndex++, this.scaleDownIndex >= this.gridRows + this.gridCols ? this.nextScaleDown = null : void 0
+            }, e.prototype.animate = function() {
+                var t, e, i, n;
+                if (this.active === !0 && this.paused === !1) {
+                    for (requestAnimationFrame(this.animate), Date.now() > this.scaleUpLastTime + 100 && "function" == typeof this.nextScaleUp && this.nextScaleUp(), this.exiting && Date.now() > this.scaleDownLastTime + 20 && "function" == typeof this.nextScaleDown && this.nextScaleDown(), this.mouseOffset.update(), n = this.users, e = 0, i = n.length; i > e; e++) t = n[e], t.update();
+                    this.timeout > 150 && (this.active = !1)
+                }
+                return !0
+            }, e.prototype.activateUser = function(t) {
+                return this.exiting = !0, t.setActive(!0)
+            }, e.prototype.setPaused = function(t) {
+                return this.paused = t, this.paused ? void 0 : this.animate()
+            }, e.prototype.resized = function() {
+                var t, e, i, n, r, s;
+                if (this.gridConfig(), (null != (n = this.users) ? n.length : void 0) > 0) {
+                    for (r = this.users, s = [], e = 0, i = r.length; i > e; e++) t = r[e], s.push(t.forceShow());
+                    return s
+                }
+            }, e
+        }()
+    }.call(this),
+    function() {
+        var t, e, i, n, r;
+        r = Date.now || function() {
+                return (new Date).getTime()
+            }, n = function(t, e, i) {
+                var n, s, o, a, u, c;
+                return u = void 0, n = void 0, s = void 0, c = void 0, a = void 0, o = function() {
+                        var l;
+                        l = r() - c, e > l ? u = setTimeout(o, e - l) : (u = null, i || (a = t.apply(s, n), s = n = null))
+                    },
+                    function() {
+                        var l;
+                        return s = this, n = arguments, c = r(), l = i && !u, u || (u = setTimeout(o, e)), l && (a = t.apply(s, n), s = n = null), a
+                    }
+            }, i = function(t, e, i) {
+                var n, r, s;
+                return s = new XMLHttpRequest, n = document.querySelector('meta[name="csrf-token"]'), r = n ? n.getAttribute("content") : void 0, s.onload = function() {
+                    return function() {
+                        return 4 === s.readyState && 200 === s.status ? "function" == typeof e ? e(s) : void 0 : "function" == typeof i ? i(s) : void 0
+                    }
+                }(this), s.open(t.method, t.url, !0), r && s.setRequestHeader("X-CSRF-Token", r), s.send(t.data || null)
+            }, t = function() {
+                var t;
+                return t = document.createElement("div"), t.matches || t.webkitMatchesSelector || t.mozMatchesSelector || t.msMatchesSelector
+            }(), e = function(e, i) {
+                if (t.bind(e)(i)) return e;
+                for (e = e.parentNode; e && e !== document;) {
+                    if (t.bind(e)(i)) return e;
+                    e = e.parentNode
+                }
+                return !1
+            },
+            function() {
+                var t, e, r, s, o, a, u, c, l, d, h, f, p, g, m, v, S, y, w, M, U, A, T, C, b, L, x, E, H, D, O, P, X, Y, R, F, z, W, q, k, I, G, B, Z, _;
+                for (_ = null, G = null, X = [], o = -1, y = document.querySelector(".main"), w = document.querySelector(".navigation"), setTimeout(function() {
+                        return function() {
+                            var t;
+                            return t = new window.UserGrid
+                        }
+                    }(this), 200), u = function() {
+                        return null != G ? G : G = document.getElementById("form_email")
+                    }, A = function() {
+                        return null != _ ? _ : _ = document.getElementById("poll")
+                    }, x = function(t, e) {
+                        return Math.abs(e - t) <= .5 ? void scrollTo(0, e) : (t = .8 * t + .2 * e, scrollTo(0, Math.round(t)), setTimeout(function() {
+                            return function() {
+                                return x(t, e)
+                            }
+                        }(this), 16.66667))
+                    }, H = function(t) {
+                        var e;
+                        return e = pageYOffset + t.getBoundingClientRect().top, x(pageYOffset, e)
+                    }, E = function(t) {
+                        var e, i, n;
+                        for (i = 0, n = X.length; n > i; i++)
+                            if (e = X[i], e.id === t) return H(e.el)
+                    },  p = function() {
+                        var t, e, i;
+                        for (t = e = i = Y - 1; e >= 0; t = e += -1)
+                            if (pageYOffset >= X[t].rect.top) return X[t];
+                        return X[0]
+                    }, F = function(t) {
+                        var e;
+                        return e = document.body, e.classList.remove("snapped"), e.setAttribute("data-activated", t), e.offsetWidth, e.classList.add("snapped")
+                    }, R = function(t) {
+                        return t.index !== o ? ("undefined" != typeof history && null !== history && history.pushState(null, null, "/" + t.id), o = t.index, F(t.id)) : void 0
+                    }, g = function(t) {
+                        var e, i, n;
+                        for (i = 0, n = X.length; n > i; i++)
+                            if (e = X[i], e.id === t) return e
+                    }, m = function(t) {
+                        var e, i, n;
+                        for (null == t && (t = o), i = 0, n = X.length; n > i; i++)
+                            if (e = X[i], e.index === t) return e
+                    }, s = function(t) {
+                        return t >= Y || 0 > t ? 0 : t
+                    }, M = function() {
+                        var t, e;
+                        return t = s(o + 1), e = m(t), R(e), E(e.id)
+                    }, C = function() {
+                        var t, e;
+                        return t = s(o - 1), e = m(t), R(e), E(e.id)
+                    }, U = function() {
+                        return function(t) {
+                            var e;
+                            return t.preventDefault(), e = A(), e.classList.remove("closed"), e.classList.add("opened"), e.offsetWidth, e.classList.add("open")
+                        }
+                    }(this), r = function() {
+                        return function(t) {
+                            var e;
+                            return t.preventDefault(), e = A(), e.classList.remove("open"), setTimeout(function() {
+                                return e.classList.remove("opened"), e.offsetWidth, e.classList.add("closed")
+                            }, 300)
+                        }
+                    }(this), z = function(t, e) {
+                        return null == e && (e = !0), u().value = t, u().disabled = e
+                    }, h = function() {
+                        return function() {
+                            var t;
+                            return "undefined" != typeof ga && null !== ga && ga("send", "event", "invite-submit", "success", null, 1), t = document.body.offsetWidth > 899 ? "Thank you. " : "", z("" + t + "We will be in touch.", !0), l.classList.add("form-was-submitted"), setTimeout(function() {
+                                return M()
+                            }, 1e3), b.removeAttribute("disabled")
+                        }
+                    }(this), d = function() {
+                        return function() {
+                            return "undefined" != typeof ga && null !== ga && ga("send", "event", "invite-submit", "failure", null, 1), l.classList.add("form--error"), z("Sorry, please try again.", !1), b.removeAttribute("disabled")
+                        }
+                    }(this), f = function() {
+                        return function(t) {
+                            return t.preventDefault(), b.setAttribute("disabled", "disabled"), u().value.length && c(u().value) ? i({
+                                method: l.method,
+                                url: l.action + ".json",
+                                data: new FormData(l)
+                            }, h, d) : ("undefined" != typeof ga && null !== ga && ga("send", "event", "invite-submit", "error", null, 1), b.removeAttribute("disabled"), z("Come on, use a real e-mail.", !1))
+                        }
+                    }(this), c = function() {
+                        return function(t) {
+                            var e;
+                            return e = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, e.test(t)
+                        }
+                    }(this), q = function() {
+                        return function(t) {
+                            var e, i, n;
+                            return t.preventDefault(), n = t.target.getAttribute("href") ? t.target : t.target.parentNode, e = n.getAttribute("href").replace(/\//gi, ""), i = g(e), R(i, i, e), E(i.id)
+                        }
+                    }(this), L = function() {
+                        return function() {
+                            return k(), R(p()), "undefined" != typeof _userGrid && null !== _userGrid ? _userGrid.resized() : void 0
+                        }
+                    }(this), D = function() {
+                        return function() {
+                            return R(p())
+                        }
+                    }(this), T = function() {
+                        return function() {
+                            var t, e;
+                            return t = window.location.pathname.replace(/\//gi, ""), t.length ? (e = g(t), R(e), E(e.id)) : R(X[0])
+                        }
+                    }(this); Z > B; B++) I = P[B];
+            }()
+    }.call(this);
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
